@@ -33,8 +33,11 @@
 			</nav>
 		</header>
 		<div style='padding: 10px;'>
-			<h4>My Templates</h4>
-			<div class='row'>
+			<div style='padding-left: 10px;'>
+				<h5>Auditing Templates</h5>
+			</div>
+			<div class="divider"></div>
+			<div class='row' style='padding-top: 15px;'>
 				<?php
 					include_once('php/api.php');
 					$api_templates_callback = api_call('https://api.safetyculture.io/templates/search?owner=me');
@@ -47,10 +50,10 @@
 
 						echo("
 						<div class='col m4'>
-			        		<div class='card blue-grey darken-1'>
+			        		<div class='card blue-grey darken-1 hoverable'>
 			          			<div class='card-content white-text'>
 				            		<span class='card-title truncate'>" . substr($template->name, 0, $strmax) . $ext . "</span>
-				            		<h1 style='padding-top: 0; padding-botom: 0;'>2%</h1>
+				            		<p>cool</p>
 			            		</div>
 					          	<div class='card-action white-text'>
 					            	<a href='#'>View Audits</a>
