@@ -31,17 +31,28 @@
 
 					  <!-- Dropdown Structure -->
 					  <ul id='mydrop' class='dropdown-content'>
-					    <li><a href="#!">one</a></li>
-					    <li><a href="#!">two</a></li>
-					  </ul>
+					    
+					  
+					  
+					  <?php
+						include_once('php/api.php');
+						$api_templates_callback = scApi('https://api.safetyculture.io/templates/search?owner=me');
+						
+						foreach ($api_templates_callback->templates as $template){
+								print("<li><a href='index.php?temp=" . $template->template_id ."'>".$template->name . "</a></li>");
+						}
+						
+					  ?>
+					  
 		      </ul>
 		    </div>
 		  </nav>
 		</header>
 		<?php
-			include_once('php/api.php');
-			$api_templates_callback = scApi('https://api.safetyculture.io/templates/search?owner=me');
+		include_once('php/api.php');
 
+			if(!isset($_GET['temp'])){
+			$api_templates_callback = scApi('https://api.safetyculture.io/templates/search?owner=me');
 			foreach ($api_templates_callback->templates as $template) {
 				echo("
 					<div class='row'>
@@ -59,7 +70,30 @@
 				      </div>
 				    </div>
 					");
-
+			}
+			}
+			
+			if(isset($_GET['temp'])){
+				$temp = $_GET['temp'];
+				$api_audits_callback = scApi('https://api.safetyculture.io/audits/search?owner=me');
+			foreach ($api_audits_callback->audits as $audits) {
+				echo("
+					<div class='row'>
+				      <div class='col s6 m3'>
+				        <div class='card blue-grey darken-1'>
+				          <div class='card-content white-text'>
+				            <span class='card-title'>" . $audits->name . "</span>
+				            <h1>" . $audits->score_percentage ."</h1>
+				          </div>
+				          <div class='card-action white-text'>
+				            <a href='#'>View Audits From Template</a>
+				            <a href='#'>This is a link</a>
+				          </div>
+				        </div>
+				      </div>
+				    </div>
+					");
+			}
 			}
 		?>
 	</body>
