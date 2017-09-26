@@ -28,6 +28,9 @@
 			<!--Include mobile optimisations-->
 			<link rel='stylesheet' href='" . $dir . "_css/mobile.css'>
 
+			<!--ProgressJS-->
+			<link rel='stylesheet' href='" . $dir . "_js/prog.css'>
+
 	      	<script>
 	      		pjax.connect({
 					'container': 'content',
