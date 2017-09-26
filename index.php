@@ -43,16 +43,11 @@
 					$api_templates_callback = api_call('https://api.safetyculture.io/templates/search?owner=me');
 
 					foreach ($api_templates_callback->templates as $template) {
-						$ext = '';
-						$strmax = 28;
-
-						if(strlen($template->name) > $strmax){ $ext = '...'; }
-
 						echo("
 						<div class='col m4'>
 			        		<div class='card blue-grey darken-1 hoverable'>
 			          			<div class='card-content white-text'>
-				            		<span class='card-title truncate'>" . substr($template->name, 0, $strmax) . $ext . "</span>
+				            		<span class='card-title truncate'>" . $template->name . "</span>
 				            		<p>cool</p>
 			            		</div>
 					          	<div class='card-action white-text'>
