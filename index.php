@@ -25,13 +25,15 @@
 		<header>
 			<nav>
 		    	<div class="nav-wrapper" style='background-color: #245776 !important'>
-		      		<a href="#" class="brand-logo">.</a>
-		      		<ul id="nav-mobile" class="right hide-on-med-and-down">
-
-		      		</ul>
+		      		<a href="#" class="brand-logo"></a>
+		      		<div id="nav-mobile" class="left">
+		      			<a href="#"><img class='navlogo' src='img/logo.svg'></a>
+		      		</div>
+		      		<div class='left navtext' style='padding-top: 3px'>AUDIT SUMMARY</div>
 			    </div>
 			</nav>
 		</header>
+		<br>
 		<div style='padding: 10px;'>
 			<div style='padding-left: 10px;'>
 				<h5>Auditing Templates</h5>

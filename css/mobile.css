@@ -2,4 +2,35 @@
 	.m4{
 		width: 100% !important;
 	}
+
+	.navlogo{
+		max-height: 56px !important;
+		padding: 10px !important;
+	}
+
+	.navtext{
+		float: right !important;
+		padding-right: 25px;
+	}
+}
+
+.navlogo {
+    max-height: 64px;
+    padding: 12px 12px 12px 12px;
+    width: 150px;
+
+    opacity: 1;
+
+    -webkit-transition: opacity 0.5s;
+	-moz-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+
+.navlogo:hover {
+	opacity: 0.4;
+}
+
+.navtext{
+	opacity: 0.8;
 }
