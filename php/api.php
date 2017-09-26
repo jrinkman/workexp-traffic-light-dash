@@ -1,5 +1,5 @@
 <?php
-	function scApi($endpoint){
+	function api_call($endpoint){
 		//Initialize the cURL handle
 		$curl_handle=curl_init();
 
