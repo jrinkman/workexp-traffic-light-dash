@@ -2,13 +2,16 @@
 <html>
 	<head>
 		<title>Audit Summary</title>
-		<?php include_once('php/head.php'); ?>
+		<?php include_once('_php/head.php'); ?>
+
+		<!--Include PJAX page navigation script-->
+		<script src='_js/pjax.js'></script>
 
 		<!--Include mobile optimisations-->
-		<link rel="stylesheet" href="css/mobile.css">
+		<link rel="stylesheet" href="_css/mobile.css">
 	</head>
 	<body>
-		<?php include_once('php/nav.php'); ?>
+		<?php include_once('_php/nav.php'); ?>
 		<br>
 		<div style='padding: 10px;'>
 			<div style='padding-left: 10px;'>
@@ -17,7 +20,7 @@
 			<div class="divider"></div>
 			<div class='row' style='padding-top: 15px;'>
 				<?php
-					include_once('php/api.php');
+					include_once('_php/api.php');
 					$api_templates_callback = api_call('https://api.safetyculture.io/templates/search?owner=me');
 
 					foreach ($api_templates_callback->templates as $template) {
