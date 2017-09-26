@@ -2,37 +2,13 @@
 <html>
 	<head>
 		<title>Audit Summary</title>
+		<?php include_once('php/head.php'); ?>
 
-		<script
-  		src="https://code.jquery.com/jquery-3.2.1.min.js"
-  		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  		crossorigin="anonymous">
-  		</script>
-
-		<!-- Compiled and minified CSS -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
-		<!-- Compiled and minified JavaScript -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-		<!-- Compiled and minified CSS -->
+		<!--Include mobile optimisations-->
 		<link rel="stylesheet" href="css/mobile.css">
-
-		<!--Let browser know website is optimized for mobile-->
-      	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
 	<body>
-		<header>
-			<nav>
-		    	<div class="nav-wrapper" style='background-color: #245776 !important'>
-		      		<a href="#" class="brand-logo"></a>
-		      		<div id="nav-mobile" class="left">
-		      			<a href="#"><img class='navlogo' src='img/logo.svg'></a>
-		      		</div>
-		      		<div class='left navtext' style='padding-top: 3px'>AUDIT SUMMARY</div>
-			    </div>
-			</nav>
-		</header>
+		<?php include_once('php/nav.php'); ?>
 		<br>
 		<div style='padding: 10px;'>
 			<div style='padding-left: 10px;'>
