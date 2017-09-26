@@ -24,7 +24,7 @@
 	<body>
 		<header>
 			<nav>
-		    	<div class="nav-wrapper">
+		    	<div class="nav-wrapper" style='background-color: #245776 !important'>
 		      		<a href="#" class="brand-logo">.</a>
 		      		<ul id="nav-mobile" class="right hide-on-med-and-down">
 
@@ -48,7 +48,8 @@
 			        		<div class='card blue-grey darken-1 hoverable'>
 			          			<div class='card-content white-text'>
 				            		<span class='card-title truncate'>" . $template->name . "</span>
-				            		<p>cool</p>
+				            		<p><strong>Created At: </strong>" . date('Y/m/d h:i A', strtotime($template->created_at)) . "</p>
+				            		<p><strong>Last Modified: </strong>" . date('Y/m/d h:i A', strtotime($template->created_at)) . "</p>
 			            		</div>
 					          	<div class='card-action white-text'>
 					            	<a href='#'>View Audits</a>
