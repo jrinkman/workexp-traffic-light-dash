@@ -25,11 +25,11 @@
 				        		<div class='card blue-grey darken-1 hoverable'>
 				          			<div class='card-content white-text'>
 					            		<span class='card-title truncate'>" . $template->name . "</span>
-					            		<p><strong>Created At: </strong></p><p style='opacity: 0.6'>" . date('Y/m/d h:i A', strtotime($template->created_at)) . "</p>
-					            		<p><strong>Last Modified: </strong></p><p style='opacity: 0.6'>" . date('Y/m/d h:i A', strtotime($template->modified_at)) . "</p>
+					            		<p><strong>Created At: </strong></p><p style='opacity: 0.7'>" . date('Y/m/d h:i A', strtotime($template->created_at)) . "</p>
+					            		<p><strong>Last Modified: </strong></p><p style='opacity: 0.7'>" . date('Y/m/d h:i A', strtotime($template->modified_at)) . "</p>
 				            		</div>
 						          	<div class='card-action white-text'>
-						            	<a href='/audits'>View Audits</a>
+						            	<a href=\"audits/?t=" . $template->template_id . "\">View Audits</a>
 						          	</div>
 					          	</div>
 					    	</div>
