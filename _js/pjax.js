@@ -216,7 +216,7 @@
     var tmp = document.createElement('div');
 
     // Add HTML
-    tmp.innerHTML = html; 
+    tmp.innerHTML = html;
 
     // Grab the title if there is one
     var title = tmp.getElementsByTagName('title')[0].innerHTML;
@@ -231,7 +231,7 @@
         // not PJAX ready, but instead likely the full HTML content. in Addition we can also guess that
         // the content of this node is what we want to update our container with.
         // Thus use this content as the HTML to append in to our page via PJAX.
-        return tmpNodes[i].innerHTML; 
+        return $(tmpNodes[i].innerHTML); 
       }
     }
     // If our container was not found, HTML will be returned as is.
@@ -278,7 +278,7 @@
         }
 
         // Update the DOM with the new content
-        options.container.innerHTML = html;
+        $(options.container).html(html);
         
         // Do we need to add this to the history?
         if(options.history) {

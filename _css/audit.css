@@ -1,7 +1,38 @@
 @media (max-width : 770px) {
 	.auditinfo{
 		padding-left: 0px !important;
+		width: 100%;
 	}
+
+	.auditperc {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.auditinfo h4{
+		text-align: center;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.backright{
+		float: none;
+	}
+
+	.backleft{
+		float: none;
+		margin-left: 50%;
+		transform: translate(-50%);
+		padding-top: 25px;
+	}
+
+	.body{
+		padding: 0px 30px 15px 30px !important;
+	}
+}
+
+.body{
+	padding: 0px 40px 15px 40px;
 }
 
 .auditperc {
@@ -10,15 +41,24 @@
 }
 
 .auditinfo{
-	padding-left: 25px;
+	padding-left: 30px;
+}
+
+.auditinfo p{
+	font-size: 16px;
+	margin: 0px;
+}
+
+.backright{
+	float: right;
+}
+
+.backleft{
+	float: left;
 }
 
 .audit{
 	padding-top: 30px;
 	padding-bottom: 30px;
 	overflow: auto
-}
-
-.audit div{
-
 }

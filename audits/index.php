@@ -4,15 +4,12 @@
 	<head>
 		<title>Audit Summary</title>
 		<?php init_head('../'); ?>
-
-		<!--Audit percentage CSS-->
-		<link rel='stylesheet' href='../_css/audit.css'>
 	</head>
 	<body>
 		<?php init_nav('../'); ?>
 		<br>
 		<div id='content'>
-			<div style='padding: 0px 25px 15px 40px;'>
+			<div class='body'>
 				<?php
 					if(!isset($_GET['t'])){
 
@@ -21,14 +18,29 @@
 						$out = api_call('https://api.safetyculture.io/audits/search?owner=me&template=' . $_GET['t']);
 						$first = true;
 
+						if($out->count == 0){
+							echo("
+									<div style='position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);'>
+										<h4 class='backright' style='margin: 0px; padding-left: 20px; text-align: center;'>No audits have been made with this template</h4>
+										<div class='backleft'>
+											<a class='btn-floating waves-effect waves-light orange accent-2' href='/'><i class='material-icons'>arrow_back</i></a>
+										</div>
+									</div>
+								");
+							return;
+						}
+
 						foreach($out->audits as $audit){
 							$api_audit = api_call('https://api.safetyculture.io/audits/' . $audit->audit_id);
 
 							if($first){
 								$first = false;
 								echo("
-									<h2 style='margin-bottom: 0px;'>" . $api_audit->template_data->metadata->name . "</h2>
-									<h5 style='margin-top: 10px; margin-bottom: 15px; opacity: 0.7'>" . $api_audit->template_data->metadata->description . "</h5>
+									<div>
+										<a class='btn-floating waves-effect waves-light orange accent-2 left' href='/'><i class='material-icons'>arrow_back</i></a>
+										<div style='margin-left: 60px'><h4 style='margin-bottom: 0px;'>" . $api_audit->template_data->metadata->name . "</h4></div>
+									</div>
+									<p style='margin-top: 10px; margin-bottom: 15px; opacity: 0.7; font-size: 16px;'>" . $api_audit->template_data->metadata->description . "</p>
 									<div class='divider'></div>
 								");
 							}
@@ -38,15 +50,16 @@
 							$perc_raw = $api_audit->audit_data->score_percentage;
 							$percentage = $perc_raw / 100;
 
-							if($perc_raw < 50){
-								$status_text = "Critical";
-								$status_colour = "#e53935";
-							} elseif($perc_raw >= 50){
-								$status_text = "Needs Attention";
-								$status_colour = "#ffca28";
-							} elseif($perc_raw > 80){
+							if($perc_raw > 80){
 								$status_text = "Good";
 								$status_colour = "#8bc34a";
+							}
+							elseif($perc_raw >= 50){
+								$status_text = "Needs Attention";
+								$status_colour = "#ffca28";
+							}elseif($perc_raw < 50){
+								$status_text = "Critical";
+								$status_colour = "#e53935";
 							}
 
 							echo("
@@ -54,8 +67,9 @@
 									<div id='" . $api_audit->audit_id . "' class='auditperc left'></div>
 									<div class='left auditinfo'>
 										<h4>" . $status_text . "</h4>
-										<h5>Audited By</h5>
-										<h5>Testing</h5>
+										<p><strong>Audited By: </strong></p><p style='opacity: 0.8'>" . $api_audit->audit_data->authorship->owner . "</p>
+										<p><strong>Score Performance: </strong></p><p style='opacity: 0.8'>" . $api_audit->audit_data->score . "/" . $api_audit->audit_data->total_score . "</p>
+										<p><strong>Date Completed: </strong></p><p style='opacity: 0.8'>" . date('Y/m/d h:i A', strtotime($api_audit->audit_data->date_completed)) . "</p>
 									</div>
 								</div>
 								<script>
@@ -70,7 +84,7 @@
 										text: {
 											autoStyleContainer: true
 										},
-										from: { color: '#aaa', width: 3 },
+										from: { color: '" . $status_colour . "', width: 3 },
 										to: { color: '" . $status_colour . "', width: 3 },
 										// Set default step function for all animate calls
 										step: function(state, circle) {

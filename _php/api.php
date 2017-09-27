@@ -16,8 +16,4 @@
 		//Return the decoded query
 		return json_decode($query);
 	}
-
-	function api_audit(){
-		
-	}
 ?>

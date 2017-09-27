@@ -16,6 +16,9 @@
 			<!--Let browser know website is optimized for mobile-->
 	      	<meta name='viewport' content='width=device-width, initial-scale=1.0'/>
 
+	      	<!--Google Material Icons-->
+	      	<link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+
 	      	<!--Include page navigation script-->
 			<script src='" . $dir . "_js/pjax.js'></script>
 
@@ -27,6 +30,9 @@
 
 			<!--Include mobile optimisations-->
 			<link rel='stylesheet' href='" . $dir . "_css/mobile.css'>
+
+			<!--Audit percentage CSS-->
+			<link rel='stylesheet' href='" . $dir . "_css/audit.css'>
 
 			<!--ProgressJS-->
 			<script src='" . $dir . "_js/prog.js'></script>
