@@ -1,0 +1,24 @@
+@media (max-width : 770px) {
+	.auditinfo{
+		padding-left: 0px !important;
+	}
+}
+
+.auditperc {
+	width: 250px;
+	height: 250px;
+}
+
+.auditinfo{
+	padding-left: 25px;
+}
+
+.audit{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	overflow: auto
+}
+
+.audit div{
+
+}
