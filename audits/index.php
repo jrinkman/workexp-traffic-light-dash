@@ -14,30 +14,41 @@
 		<div id='content'>
 			<div style='padding: 0px 25px 15px 40px;'>
 				<?php
-					/*if(!isset($_GET['t'])){
+					if(!isset($_GET['t'])){
 
 					}else{
 						include_once('../_php/api.php');
 						$out = api_call('https://api.safetyculture.io/audits/search?owner=me&template=' . $_GET['t']);
+						$first = true;
 
 						foreach($out->audits as $audit){
 							$api_audit = api_call('https://api.safetyculture.io/audits/' . $audit->audit_id);
 
+							if($first){
+								$first = false;
+								echo("
+									<h2 style='margin-bottom: 0px;'>" . $api_audit->template_data->metadata->name . "</h2>
+									<h5 style='margin-top: 10px; margin-bottom: 15px; opacity: 0.7'>" . $api_audit->template_data->metadata->description . "</h5>
+									<div class='divider'></div>
+								");
+							}
+
+							$status_text = "";
+							$percentage = ($api_audit->audit_data->score_percentage) / 100;
+							echo("
+								<div class='audit'>
+									<div id='" . "' class='auditperc left'></div>
+									<div class='left auditinfo'>
+										<h4>Audit Name</h4>
+										<h5>Audited By</h5>
+										<h5>Testing</h5>
+									</div>
+								</div>
+								<div class='divider'></div>
+							");
 						}
-					}*/
+					}
 				?>
-				<h2 style='margin-bottom: 0px;'>Template Title</h2>
-				<h5 style='margin-top: 10px; margin-bottom: 15px; opacity: 0.7'>Template Description</h5>
-				<div class='divider'></div>
-				<div class='audit'>
-					<div id='audittest' class='auditperc left'></div>
-					<div class='left auditinfo'>
-						<h4>Audit Name</h4>
-						<h5>Audited By</h5>
-						<h5>Testing</h5>
-					</div>
-				</div>
-				<div class='divider'></div>
 				<div class='audit'>
 					<div id='audittest' class='auditperc left'></div>
 					<div class='left auditinfo'>
@@ -77,7 +88,7 @@
 					}
 				});
 
-				bar.text.style.fontFamily = '"Roboto"';
+				bar.text.style.fontFamily = 'Roboto';
 				bar.text.style.fontSize = '2rem';
 
 				bar.animate(0.8);  // Number from 0.0 to 1.0
