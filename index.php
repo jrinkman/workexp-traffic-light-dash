@@ -29,7 +29,7 @@
 					            		<p><strong>Last Modified: </strong></p><p style='opacity: 0.6'>" . date('Y/m/d h:i A', strtotime($template->modified_at)) . "</p>
 				            		</div>
 						          	<div class='card-action white-text'>
-						            	<a href=\"/audits/?t=" . $template->template_id . "\">View Audits</a>
+						            	<a href=\"audits/?t=" . $template->template_id . "\">View Audits</a>
 						          	</div>
 					          	</div>
 					    	</div>

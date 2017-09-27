@@ -29,7 +29,7 @@
 			<link rel='stylesheet' href='" . $dir . "_css/mobile.css'>
 
 			<!--ProgressJS-->
-			<link rel='stylesheet' href='" . $dir . "_js/prog.css'>
+			<link rel='stylesheet' href='" . $dir . "_js/prog.js'>
 
 	      	<script>
 	      		pjax.connect({
