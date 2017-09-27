@@ -37,7 +37,7 @@
 								$first = false;
 								echo("
 									<div>
-										<a class='btn-floating waves-effect waves-light orange accent-2 left' href='/'><i class='material-icons'>arrow_back</i></a>
+										<a class='btn-floating waves-effect waves-light orange accent-2 left' href='../'><i class='material-icons'>arrow_back</i></a>
 										<div style='margin-left: 60px'><h4 style='margin-bottom: 0px;'>" . $api_audit->template_data->metadata->name . "</h4></div>
 									</div>
 									<p style='margin-top: 10px; margin-bottom: 15px; opacity: 0.7; font-size: 16px;'>" . $api_audit->template_data->metadata->description . "</p>
