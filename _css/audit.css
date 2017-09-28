@@ -45,7 +45,6 @@
 .backleft{
 	float: none;
 	margin-left: 50%;
-	transform: translate(-50%);
 	padding-top: 25px;
 }
 

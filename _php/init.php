@@ -1,5 +1,6 @@
 <?php
 	function init_head($dir){
+		error_reporting(0);
 		echo("
 			<script
 	  		src='https://code.jquery.com/jquery-3.2.1.min.js'

@@ -29,7 +29,7 @@
 									<div style='position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);'>
 										<h4 class='backright' style='margin: 0px; padding-left: 20px; text-align: center;'>No audits have been made with this template</h4>
 										<div class='backleft'>
-											<a class='btn-floating waves-effect waves-light orange accent-2' href='/'><i class='material-icons'>arrow_back</i></a>
+											<a class='btn-floating waves-effect waves-light orange accent-2' href='../'><i class='material-icons'>arrow_back</i></a>
 										</div>
 									</div>
 								");
@@ -49,15 +49,15 @@
 									<div>
 										<a class='btn-floating waves-effect waves-light orange accent-2 left' href='../'><i class='material-icons'>arrow_back</i></a>
 										<div style='margin-left: 60px'>
-											<a class='dropdown-button btn right' data-activates='droptime'>Select all audits from</a>
-												<!-- Dropdown Structure -->
-												<ul id='droptime' class='dropdown-content'>
-													<li><a href=\"../audits/?t=" . $_GET['t'] . "&f=" . $date_week . "\">the past week</a></li>
-													<li><a href=\"../audits/?t=" . $_GET['t'] . "&f=" . $date_month . "\">the past month</a></li>
-													<li><a href=\"../audits/?t=" . $_GET['t'] . "\">two</a></li>
-												</ul>
-											<h4 style='margin-bottom: 0px;'>" . $api_audit->template_data->metadata->name . "</h4>
+											<a class='dropdown-button btn right' data-activates='droptime'>Select From</a>
+											<!-- Dropdown Structure -->
+											<ul id='droptime' class='dropdown-content'>
+												<li><a href=\"../audits/?t=" . $_GET['t'] . "&f=" . $date_week . "\">the past week</a></li>
+												<li><a href=\"../audits/?t=" . $_GET['t'] . "&f=" . $date_month . "\">the past month</a></li>
+												<li><a href=\"../audits/?t=" . $_GET['t'] . "\">all time</a></li>
+											</ul>
 										</div>
+										<div style='padding-top: 50px;'><h4 style='margin-bottom: 0px;'>" . $api_audit->template_data->metadata->name . "</h4></div>
 									</div>
 									<p style='margin-top: 10px; margin-bottom: 15px; opacity: 0.7; font-size: 16px;'>" . $api_audit->template_data->metadata->description . "</p>
 									<div class='divider'></div>
