@@ -19,6 +19,8 @@
 						include_once('_php/api.php');
 						$api_templates_callback = api_call('https://api.safetyculture.io/templates/search?owner=me');
 
+						$date = date("Y-m-d\TH:i:s.000\Z", strtotime("-1 week"));
+
 						foreach ($api_templates_callback->templates as $template) {
 							echo("
 							<div class='col m4'>
@@ -29,7 +31,7 @@
 					            		<p><strong>Last Modified: </strong></p><p style='opacity: 0.7'>" . date('Y/m/d h:i A', strtotime($template->modified_at)) . "</p>
 				            		</div>
 						          	<div class='card-action white-text'>
-						            	<a href=\"audits/?t=" . $template->template_id . "\">View Audits</a>
+						            	<a href=\"audits/?t=" . $template->template_id . "&f=" . $date . "\">View Audits</a>
 						          	</div>
 					          	</div>
 					    	</div>

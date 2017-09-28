@@ -15,17 +15,6 @@
 		padding-bottom: 10px;
 	}
 
-	.backright{
-		float: none;
-	}
-
-	.backleft{
-		float: none;
-		margin-left: 50%;
-		transform: translate(-50%);
-		padding-top: 25px;
-	}
-
 	.body{
 		padding: 0px 30px 15px 30px !important;
 	}
@@ -50,11 +39,14 @@
 }
 
 .backright{
-	float: right;
+	float: none;
 }
 
 .backleft{
-	float: left;
+	float: none;
+	margin-left: 50%;
+	transform: translate(-50%);
+	padding-top: 25px;
 }
 
 .audit{

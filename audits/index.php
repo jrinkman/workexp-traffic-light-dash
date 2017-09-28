@@ -15,7 +15,13 @@
 
 					}else{
 						include_once('../_php/api.php');
-						$out = api_call('https://api.safetyculture.io/audits/search?owner=me&template=' . $_GET['t']);
+
+						$modified = '';
+						if(isset($_GET['f'])){
+							$modified = '&modified_after=' . $_GET['f'];
+						}
+
+						$out = api_call('https://api.safetyculture.io/audits/search?owner=me&template=' . $_GET['t'] . $modified);
 						$first = true;
 
 						if($out->count == 0){
@@ -35,13 +41,27 @@
 
 							if($first){
 								$first = false;
+
+								$date_week = date("Y-m-d\TH:i:s.000\Z", strtotime("-1 week"));
+								$date_month = date("Y-m-d\TH:i:s.000\Z", strtotime("-1 month"));
+
 								echo("
 									<div>
 										<a class='btn-floating waves-effect waves-light orange accent-2 left' href='../'><i class='material-icons'>arrow_back</i></a>
-										<div style='margin-left: 60px'><h4 style='margin-bottom: 0px;'>" . $api_audit->template_data->metadata->name . "</h4></div>
+										<div style='margin-left: 60px'>
+											<a class='dropdown-button btn right' data-activates='droptime'>Select all audits from</a>
+												<!-- Dropdown Structure -->
+												<ul id='droptime' class='dropdown-content'>
+													<li><a href=\"../audits/?t=" . $_GET['t'] . "&f=" . $date_week . "\">the past week</a></li>
+													<li><a href=\"../audits/?t=" . $_GET['t'] . "&f=" . $date_month . "\">the past month</a></li>
+													<li><a href=\"../audits/?t=" . $_GET['t'] . "\">two</a></li>
+												</ul>
+											<h4 style='margin-bottom: 0px;'>" . $api_audit->template_data->metadata->name . "</h4>
+										</div>
 									</div>
 									<p style='margin-top: 10px; margin-bottom: 15px; opacity: 0.7; font-size: 16px;'>" . $api_audit->template_data->metadata->description . "</p>
 									<div class='divider'></div>
+									<script>  $('.dropdown-button').dropdown(); </script>
 								");
 							}
 
