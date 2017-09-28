@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Audit Summary</title>
+		<title>Audit Summaries</title>
 		<?php init_head('../'); ?>
 	</head>
 	<body>
@@ -24,14 +24,35 @@
 						$out = api_call('https://api.safetyculture.io/audits/search?owner=me&completed=true&template=' . $_GET['t'] . $modified);
 						$first = true;
 
+						$date_week = date("Y-m-d\TH:i:s.000\Z", strtotime("-1 week"));
+						$date_month = date("Y-m-d\TH:i:s.000\Z", strtotime("-1 month"));
+
 						if($out->count == 0){
 							echo("
 									<div style='position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);'>
-										<h4 class='backright' style='margin: 0px; padding-left: 20px; text-align: center;'>No audits have been made with this template</h4>
-										<div class='backleft'>
-											<a class='btn-floating waves-effect waves-light orange accent-2' href='../'><i class='material-icons'>arrow_back</i></a>
+										<h5 style='text-align: center;'>No audits have been made with this template within this time period.</h5>
+										<div class='back' style='margin-left: 50%; transform: translateX(-50%);'>
+											<div style='float: left'>
+												<a class='btn-floating waves-effect waves-light orange accent-2' href='../'><i class='material-icons'>arrow_back</i></a>
+											</div>
+											<div style='float: left'>
+												<a class='waves-effect waves-light btn modal-trigger' href='' onclick=\"$('#selectmodal').modal('open');\">Select From</a>
+											</div>
 										</div>
 									</div>
+								 	<div id='selectmodal' class='modal'>
+										<div class='modal-content'>
+											<h4>Order Audits By</h4>
+											<div><a onclick=\"$('#selectmodal').modal('close');\"  href=\"../audits/?t=" . $_GET['t'] . "&f=" . $date_week . "\" class='center-align waves-effect waves-light btn'>the past week</a></div>
+											<div><a onclick=\"$('#selectmodal').modal('close');\"  href=\"../audits/?t=" . $_GET['t'] . "&f=" . $date_month . "\" class='center-align waves-effect waves-light btn'>the past week</a></div>
+											<div><a onclick=\"$('#selectmodal').modal('close');\" href=\"../audits/?t=" . $_GET['t'] . "\" class='center-align waves-effect waves-light btn'>all time</a></div>
+										</div>
+									</div>
+									<script>
+										$(function(){
+											$('.modal').modal();
+										});
+									</script>
 								");
 							return;
 						}
@@ -41,9 +62,6 @@
 
 							if($first){
 								$first = false;
-
-								$date_week = date("Y-m-d\TH:i:s.000\Z", strtotime("-1 week"));
-								$date_month = date("Y-m-d\TH:i:s.000\Z", strtotime("-1 month"));
 
 								echo("
 									<div>

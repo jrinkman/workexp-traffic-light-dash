@@ -18,6 +18,15 @@
 	.body{
 		padding: 0px 30px 15px 30px !important;
 	}
+
+	.back div{
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+.modal-content div{
+	padding-top: 15px;
 }
 
 .body{
@@ -38,14 +47,9 @@
 	margin: 0px;
 }
 
-.backright{
-	float: none;
-}
-
-.backleft{
-	float: none;
-	margin-left: 50%;
-	padding-top: 25px;
+.back div{
+	padding: 10px;
+	float: left;
 }
 
 .audit{

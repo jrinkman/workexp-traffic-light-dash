@@ -1,5 +1,7 @@
 <?php
 	function init_head($dir){
+		if(isset($_SERVER['HTTP_X_PJAX']) && $_SERVER['HTTP_X_PJAX'] == 'true'){ return; }
+
 		error_reporting(0);
 		echo("
 			<script
@@ -7,6 +9,8 @@
 	  		integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='
 	  		crossorigin='anonymous'>
 	  		</script>
+
+	  		<link rel='shortcut icon' type='image/x-icon' href='" . $dir .  "favicon.png' />
 
 			<!-- Compiled and minified CSS -->
 			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css'>
@@ -49,6 +53,7 @@
 	}
 
 	function init_nav($dir){
+		if(isset($_SERVER['HTTP_X_PJAX']) && $_SERVER['HTTP_X_PJAX'] == 'true'){ return; }
 		echo("
 			<header>
 				<div class='navbar-fixed'>

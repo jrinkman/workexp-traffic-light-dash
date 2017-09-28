@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Audit Summary</title>
+		<title>My iAuditor Templates</title>
 		<?php init_head(''); ?>
 	</head>
 	<body>
