@@ -21,7 +21,7 @@
 							$modified = '&modified_after=' . $_GET['f'];
 						}
 
-						$out = api_call('https://api.safetyculture.io/audits/search?owner=me&template=' . $_GET['t'] . $modified);
+						$out = api_call('https://api.safetyculture.io/audits/search?owner=me&completed=true&template=' . $_GET['t'] . $modified);
 						$first = true;
 
 						if($out->count == 0){
