@@ -12,4 +12,5 @@ Build a webpage that utilises the SafetyCulture API, PHP, HTML, CSS and any othe
 * **[ProgressBar.js](https://github.com/kimmobrunfeldt/progressbar.js):** Makes the audit percentage display look *neat*.
 
 ## Demo
-A demo of this website can be found [here](http://myaudit-env.us-east-2.elasticbeanstalk.com/).
+~~A demo of this website can be found [here](http://myaudit-env.us-east-2.elasticbeanstalk.com/).~~
+*nvm Cain cancelled it :(*
